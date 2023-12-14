@@ -1,0 +1,14 @@
+body{
+    
+    margin-top: 10pt;
+    background-image: image-set("assets/ArjitSingh's Concert.png");
+    background-position: 100%;
+    background-size: 1000%;
+    image-resolution: initial;
+    background-position-x: 100%;
+}
+.card-details {
+    content: icon;
+    padding: 0px,50px,0px,0px;
+    padding: 20px;
+  }

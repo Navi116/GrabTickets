@@ -1,0 +1,33 @@
+<p>ticket works!</p>
+
+<div class="table table-dark table-hover">
+    
+     <table >
+        <thead>
+            <th>Booking Id</th>
+            <th>Email</th>
+            <th>Show Name</th>
+            <th>Venue</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Seats</th>
+            <th>Amount</th>
+            <th>Address</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ticket of tickets">
+            <td>{{ticket.bookingid}}</td>
+            <td>{{ticket.showname}}</td>
+            <td>{{ticket.user.email}}</td>
+            <td>{{ticket.venue}}</td>
+            <td>{{ticket.date}}</td>
+            <td>{{ticket.time}}</td>
+            <td>{{ticket.seats}}</td>
+            <td>{{ticket.price}}</td>
+            <td>{{ticket.address}}</td>
+                </tr>
+        </tbody>
+        
+    </table>
+
+</div>

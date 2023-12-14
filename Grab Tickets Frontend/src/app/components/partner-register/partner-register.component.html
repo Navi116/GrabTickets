@@ -1,0 +1,309 @@
+
+
+
+
+
+
+<div class="card1">
+  <div class="container">
+    <div class="row">
+        <div class="col-md">
+            <div class="card">
+                <div class="text-center">
+                    <h3>Partner Registration</h3>
+                    
+                </div>
+                
+                    
+                
+  
+                <div class="mb-3">
+                <form (ngSubmit)="!todoForm.invalid &&  RegisterPartner()" #todoForm="ngForm">
+                <!--Username-->
+                <div class="mb-3" >
+                    <label for="name" class="form-label"><b>Firstname</b></label>
+                    <input type="text"
+                    class="form-control"
+                    name="fname"
+                    minlength="4"
+                    required
+                    #fname="ngModel"
+                    [(ngModel)]="partner.firstname"
+                    pattern="^[A-Za-z ]*">
+                </div>
+                <div *ngIf="fname.invalid && (fname.dirty || fname.touched)">
+                    <div *ngIf="fname.errors?.['required']" >
+                      Name is required
+                    </div>
+                    <div *ngIf="fname.errors?.['minlength']" >
+                      Name should have atleast 4 characters
+                    </div>
+                    <div *ngIf="fname.errors?.['pattern']" >
+                      Name should have only alphabets
+                    </div>
+                </div>
+                
+                <!--lastname-->
+                <div class="mb-3">
+                  <label for="name"><b>Lastname</b></label>
+                  <input type="text"
+                  class="form-control"
+                  name="lname"
+                  minlength="4"
+                  required
+                  #lname="ngModel"
+                  [(ngModel)]="partner.lastname"
+                  pattern="^[A-Za-z ]*">
+                </div>
+                <div *ngIf="lname.invalid && (lname.dirty || lname.touched)">
+                  <div *ngIf="lname.errors?.['required']" >
+                    Name is required
+                  </div>
+                  <div *ngIf="lname.errors?.['minlength']" >
+                    Name should have atleast 4 characters
+                  </div>
+                  <div *ngIf="lname.errors?.['pattern']" >
+                    Name should have only alphabets
+                  </div>
+                </div>
+                
+                <!--username-->
+                <div class="mb-3">
+                  <label for="name"><b>Username</b></label>
+                  <input type="text"
+                  class="form-control"
+                  name="uname"
+                  minlength="4"
+                  required
+                  #uname="ngModel"
+                  [(ngModel)]="partner.name"
+                  pattern="^[A-Za-z ]*">
+                </div>
+                <div *ngIf="uname.invalid && (uname.dirty || uname.touched)">
+                  <div *ngIf="uname.errors?.['required']" >
+                    Name is required
+                  </div>
+                  <div *ngIf="uname.errors?.['minlength']">
+                    Name should have atleast 4 characters
+                  </div>
+                  <div *ngIf="uname.errors?.['pattern']" >
+                    Name should have only alphabets
+                  </div>
+                </div>
+                
+                
+                <!--password-->
+                <div class="mb-3">
+                  <label for="password"><b>Password</b></label>
+                  <input type="text"
+                  class="form-control"
+                  name="password"
+                  minlength="4"
+                  required
+                  #password="ngModel"
+                  [(ngModel)]="partner.password"
+                  pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$">
+                </div>
+                <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                  <div *ngIf="password.errors?.['required']" >
+                    passowrd is required
+                  </div>
+                  <div *ngIf="password.errors?.['minlength']" >
+                    <p>password should be atleast 10 characters and maximum 20</p>
+                  </div>
+                  
+                  <div *ngIf="password.errors?.['maxlength']" >
+                    <p>password should not be beyond 20 characters characters</p>
+                  </div>
+                  
+                  <div *ngIf="password.errors?.['pattern']" >
+                    <h1>Invalid mobile no</h1>
+                    password should contain atleast one lowercase characters
+                    atleast one uppercase character,
+                    atleast one numerical,
+                    length should atleast 8 and atmost 16 and there should not be any whitespace.
+                  </div>
+                </div>
+                
+                <!--aadhar no-->
+                <div class="mb-3">
+                  <label for="aadhar no"><b>Pancard</b></label>
+                  <input type="text"
+                  maxlength="10"
+                  minlength="10"
+                  name="aadhar"
+                  class="form-control"
+                  required
+                  #aadhar="ngModel"
+                  [(ngModel)]="partner.pancard"
+                  pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]$">
+                </div>
+                <div *ngIf="aadhar.invalid && (aadhar.dirty || aadhar.touched)">
+                  <div *ngIf="aadhar.errors?.['required']" >
+                    pancard no is required
+                
+                  </div>
+                  <div *ngIf="aadhar.errors?.['maxlength']" >
+                    pancard no should be 10 digits
+                  </div>
+                
+                  <div *ngIf="aadhar.errors?.['minlength']" >
+                    pancard no should be 10 digits
+                  </div>
+                
+                  <div *ngIf="aadhar.errors?.['pattern']" >
+                    Invalid pancard
+                  </div>
+                </div>
+                
+                <!--mobile number-->
+                <div class="mb-3">
+                  <label for="Mobile No"><b>Mobile Number</b></label>
+                  <input type="number"
+                  maxlength="10"
+                  minlength="10"
+                  name="mobile"
+                  class="form-control"
+                  required
+                  #mobile="ngModel"
+                 [(ngModel)]="partner.mobilenumber"
+                 pattern="^[6-9]\d{9}$"
+                  >
+                </div>
+                <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)">
+                <div *ngIf="mobile.errors?.['required']" >
+                  Mobile No is required
+                </div>
+                
+                <div *ngIf="mobile.errors?.['maxlength']" >
+                  Mobile No should be 10 digits
+                </div>
+                
+                <div *ngIf="mobile.errors?.['minlength']">
+                  Mobile No should be 10 digits
+                </div>
+                
+                <div *ngIf="mobile.errors?.['pattern']" >
+                  Invalid mobile no
+                </div>
+                
+                </div>
+                
+                <!--email id-->
+                <div class="mb-3">
+                  <label for="Email"><b>Email</b></label>
+                  <input type="text"
+                  name="email"
+                  class="form-control"
+                  required
+                  #email="ngModel"
+                 [(ngModel)]="partner.email"
+                 pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$"
+                  >
+                </div>
+                <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors?.['required']" >
+                  Email  is required
+                </div>
+                
+                <div *ngIf="email.errors?.['pattern']" >
+                  Invalid Email
+                </div>
+                
+                </div>
+                <!--Venuename-->
+                <div class="mb-3">
+                  <label for="name"><b>Venuename</b></label>
+                  <input type="text"
+                  class="form-control"
+                  name="name"
+                  minlength="4"
+                  required
+                  #name="ngModel"
+                  [(ngModel)]="partner.venuename"
+                  pattern="^[A-Za-z ]*">
+                </div>
+                <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                  <div *ngIf="name.errors?.['required']" >
+                    Name is required
+                  </div>
+                  <div *ngIf="name.errors?.['minlength']" >
+                    Name should have atleast 4 characters
+                  </div>
+                  <div *ngIf="name.errors?.['pattern']" >
+                    Name should have only alphabets
+                  </div>
+                </div>
+                <!--capacity-->
+                
+                <div class="mb-3">
+                  <label for="Mobile No"><b>Capacity</b></label>
+                  <input type="number"
+                  maxlength="3"
+                  minlength="3"
+                  name="capacity"
+                  class="form-control"
+                  required
+                  #capacity="ngModel"
+                 [(ngModel)]="partner.capacity"
+                 
+                  >
+                </div>
+                <div *ngIf="capacity.invalid && (capacity.dirty || capacity.touched)">
+                <div *ngIf="capacity.errors?.['required']" >
+                  Mobile No is required
+                </div>
+                
+                <div *ngIf="capacity.errors?.['maxlength']" >
+                 capacity should be 3 digits
+                </div>
+                
+                <div *ngIf="capacity.errors?.['minlength']" >
+                  capacity should be 3 digits
+                </div>
+                
+                
+                
+                </div>
+                
+                <!--address-->
+                <div class="mb-3">
+                  <label for="name"><b>Address</b></label>
+                 <textarea  class="form-control"
+                 name="address"
+                 minlength="4"
+                 required
+                 rows="5"
+                 
+                 #address="ngModel"
+                 [(ngModel)]="partner.address"
+                 pattern="^[A-Za-z ]*"></textarea>
+                  
+                </div>
+                <div *ngIf="address.invalid && (address.dirty || address.touched)">
+                  <div *ngIf="address.errors?.['required']" class="alert alert-danger">
+                    Name is required
+                  </div>
+                  <div *ngIf="address.errors?.['minlength']" class="alert alert-danger">
+                    Name should have atleast 4 characters
+                  </div>
+                  <div *ngIf="address.errors?.['pattern']" class="alert alert-danger">
+                    Name should have only alphabets
+                  </div>
+  
+                  
+                </div>
+                
+                <button  type="submit" class="btn btn-success">Save</button>
+                
+                           
+                </form>
+                </div>     
+                
+            </div>
+  
+            
+        </div>
+    </div>
+  </div>
+  </div>

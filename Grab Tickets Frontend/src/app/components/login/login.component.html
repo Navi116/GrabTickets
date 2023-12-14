@@ -1,0 +1,110 @@
+
+
+
+<div class="card1">
+  <div  class="container">
+      <div class="row">
+          <div class="col-md">
+              <div class="card">
+                <div class="text-center">
+                  <h1>User Login</h1>
+                  <h6>Please enter email & password !!</h6>
+              </div>
+                  
+                <div class="container ">
+
+                  <div class="form-group">
+                      <label for="name">Email ID</label>
+                      <input type="text"
+                      class="form-control"
+                      name="uname"
+                      minlength="4"
+                      required
+                      #uname="ngModel"
+                      [(ngModel)]="name"
+                      pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$">
+                  </div>
+                  <div class="validation">
+                    <div *ngIf="uname.invalid && (uname.dirty || uname.touched)">
+                        <div *ngIf = "uname.errors?.['required']">
+                          *Email is required
+                        </div>
+                        <!-- <div *ngIf="uname.errors?.['minlength']">
+                          Name should have atleast 4 characters
+                        </div>
+                        <div *ngIf="uname.errors?.['pattern']">
+                          Please enter email id correctly
+                        </div> -->
+                    </div>
+                  </div><br>
+                  <!-- Password -->
+                  <div class="form-group">
+                      <label for="password">Password</label>
+                      <div class="input-group">
+                        <input 
+                        [type]="changeType?'password':'text'"
+                        id="password"
+                        class="form-control"
+                        name="upass"
+                        minlength="4"
+                        required
+                        #upass="ngModel"
+                        [(ngModel)]="pass"
+                        pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$
+                        " >
+                        <span class="eyeicon" (click)="togglePassword()"><i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i></span>
+                      </div>
+                  </div>
+                  
+                  <div class="validation">
+                    <div *ngIf="upass.invalid && (upass.dirty || upass.touched)">
+                      <div *ngIf = "upass.errors?.['required']">
+                        *Password is required
+                      </div> 
+                      <!-- <div *ngIf="upass.errors?.['minlength']">
+                        Name should have atleast 8 characters
+                      </div>
+                      <div *ngIf="upass.errors?.['pattern']">
+                        Please enter email id correctly
+                      </div> -->
+                    </div>
+                  </div><br>
+                  <div class="register">
+                    <button type="button" class="btn btn-primary" (click)="handleLogin()">Login</button>
+                    <button class="btn btn-secondary" (click)="registerUser()">Register</button>
+                  </div>
+                  <div *ngIf="loginuser">
+                      Login Successful
+                  </div>
+                  
+                  <!-- <div class="register">
+                      <p>Don't have a account <a [routerLink]="['/register']">Register</a></p>
+                  </div> -->
+                  <!-- <div class="validation">
+                    <ng-template #block2>
+                      <p>username or password is incorrect</p>
+                    </ng-template>
+                  </div> -->
+
+                  <br><br>
+                  <div>
+                    <button routerLink="/Host" type="button" class="btn btn-primary" >Host Login</button>
+                    <button routerLink="/partner" class="btn btn-primary" >Partner Login</button>
+                    <button routerLink="/venu" class="btn btn-primary" >Venu Registration</button>
+                  </div>
+                
+                </div>
+                
+                      
+                    
+                  </div>
+                  
+                   
+                          
+                  
+              </div>
+          </div>
+      </div>
+      </div>
+      
+

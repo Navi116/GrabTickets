@@ -1,0 +1,273 @@
+
+<div class="card1">
+    <div  class="container">
+        <div class="row">
+            <div class="col-md">
+                <div class="card">
+                  <div class="text-center">
+                    <h1>Venu Registration</h1>
+                    
+                </div>
+
+<div class="container ">
+    <form (ngSubmit)="!venueForm.invalid &&  RegisterVenue()" #venueForm="ngForm">
+        <!--Venue name-->
+        <div class="mb-3" >
+            <label for="name"><b>Venue name</b></label>
+            <input type="text"
+            class="form-control"
+            name="vname"
+            minlength="4"
+            required
+            #vname="ngModel"
+            [(ngModel)]="venue.venuename"
+            pattern="^[A-Za-z ]*">
+        </div>
+        <div class="validations">
+            <div *ngIf="vname.invalid && (vname.dirty || vname.touched)">
+                <div *ngIf="vname.errors?.['required']" class="alert alert-danger">
+                    Venue name is required
+                </div>
+                <div *ngIf="vname.errors?.['minlength']" class="alert alert-danger">
+                    Venue name should have atleast 4 characters
+                </div>
+                <div *ngIf="vname.errors?.['pattern']" class="alert alert-danger">
+                    Venue name should have only alphabets
+                </div>
+            </div>
+        </div>
+    
+        <!--Venue Category-->
+        <div class="mb-3">
+        <label for="vcategory"><b>Venue Category</b></label>
+        <select 
+        class="form-control"
+        name="vcategory"
+        required
+        #vcategory="ngModel"
+        [(ngModel)]="venue.venuecategory">
+        <option value="Movie Theatre">Movie Theatre</option>
+        <option value="Event Hall">Event Hall</option>
+        <option value="Stadium">Stadium</option>
+        <option value="Open-air-theatre">Open-air-theatre</option>
+        </select>
+        
+        </div>
+        <div class="validations">
+            <div *ngIf="vcategory.invalid && (vcategory.dirty || vcategory.touched)">
+                <div *ngIf="vcategory.errors?.['required']" class="alert alert-danger">
+                    Venue Category is required
+                </div>
+            </div>
+        </div>
+    
+        <!--Seat Capacity-->
+        <div class="mb-3">
+        <label for="vcapacity"><b>Seat Capacity</b></label>
+        <input type="number"
+        class="form-control"
+        name="vcapacity"
+        required
+        min="2"
+        max="100000"
+        #vcapacity="ngModel"
+        [(ngModel)]="venue.seatcapacity"
+        pattern="^[1-9]\d*$">
+        </div>
+        <div class="validations">
+            <div *ngIf="vcapacity.invalid && (vcapacity.dirty || vcapacity.touched)">
+                <div *ngIf="vcapacity.errors?.['required']" class="alert alert-danger">
+                    *Seat Capacity is required
+                </div>
+                <div *ngIf="vcapacity.errors?.['min']" class="alert alert-danger">
+                    *Seat Capacity should be atleast 2
+                </div>
+                <div *ngIf="vcapacity.errors?.['max']" class="alert alert-danger">
+                    Maxium Seat Capacity should be less than 1,00,000
+                </div>
+            </div>
+        </div>
+    
+    
+        <!--Street-->
+        <div class="mb-3">
+        <label for="vstreet"><b>Street</b></label>
+        <input type="text"
+        class="form-control"
+        name="vstreet"
+        minlength="4"
+        required
+        #vstreet="ngModel"
+        [(ngModel)]="venue.street"
+        pattern="^[A-Za-z0-9 ]*">
+        </div>
+        <div class="validations">
+            <div *ngIf="vstreet.invalid && (vstreet.dirty || vstreet.touched)">
+                <div *ngIf="vstreet.errors?.['required']" class="alert alert-danger">
+                    Street is required
+                </div>
+                <div *ngIf="vstreet.errors?.['minlength']" class="alert alert-danger">
+                    Street should have atleast 4 characters
+                </div>
+                <div *ngIf="vstreet.errors?.['pattern']" class="alert alert-danger">
+                    Special characters are not allowed
+                </div>
+            </div>
+        </div>
+    
+        <!-- City -->
+        <div class="mb-3">
+            <label for="vcity"><b>City</b></label>
+            <input type="text"
+            class="form-control"
+            name="vcity"
+            minlength="4"
+            required
+            #vcity="ngModel"
+            [(ngModel)]="venue.city"
+            pattern="^[A-Za-z ]*">
+        </div>
+        <div class="validations">
+            <div *ngIf="vcity.invalid && (vcity.dirty || vcity.touched)">
+                <div *ngIf="vcity.errors?.['required']" class="alert alert-danger">
+                    City is required
+                </div>
+                <div *ngIf="vcity.errors?.['minlength']" class="alert alert-danger">
+                    City should have atleast 4 characters
+                </div>
+                <div *ngIf="vcity.errors?.['pattern']" class="alert alert-danger">
+                    City name should only have alphabets
+                </div>
+            </div>
+        </div>
+
+        <!-- State -->
+        <div class="mb-3">
+            <label for="vstate"><b>State</b></label>
+            <input type="text"
+            class="form-control"
+            name="vstate"
+            minlength="4"
+            required
+            #vstate="ngModel"
+            [(ngModel)]="venue.state"
+            pattern="^[A-Za-z ]*">
+        </div>
+        <div class="validations">
+            <div *ngIf="vstate.invalid && (vstate.dirty || vstate.touched)">
+                <div *ngIf="vstate.errors?.['required']" class="alert alert-danger">
+                    State is required
+                </div>
+                <div *ngIf="vstate.errors?.['minlength']" class="alert alert-danger">
+                    State should have atleast 4 characters
+                </div>
+                <div *ngIf="vstate.errors?.['pattern']" class="alert alert-danger">
+                    State name should not have any numbers or special characters
+                </div>
+            </div>
+        </div>
+
+        <!-- Pincode -->
+        <div class="mb-3">
+            <label for="vpincode"><b>Pincode</b></label>
+            <input type="number"
+            class="form-control"
+            name="vpincode"
+            required
+            min="6"
+            #vpincode="ngModel"
+            [(ngModel)]="venue.pincode"
+            pattern="^[1-9][0-9]{5}$">
+        </div>
+        <div class="validations">
+            <div *ngIf="vpincode.invalid && (vpincode.dirty || vpincode.touched)">
+                <div *ngIf="vpincode.errors?.['required']" class="alert alert-danger">
+                    *Pincode is required
+                </div>
+                <div *ngIf="vpincode.errors?.['min']" class="alert alert-danger">
+                    *Pincode should have atleast 6 digits
+                </div>
+                <div *ngIf="vpincode.errors?.['pattern']" class="alert alert-danger">
+                    *Invalid Pincode
+                </div>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+            <label for="vdescription"><b>Description</b></label>
+            <input type="textarea"
+            class="form-control"
+            name="vdescription"
+            minlength="4"
+            required
+            #vdescription="ngModel"
+            [(ngModel)]="venue.description"
+            placeholder="Like facilities available, which type of events are best fit...etc">
+        </div>
+        <div class="validations">
+            <div *ngIf="vdescription.invalid && (vdescription.dirty || vdescription.touched)">
+                <div *ngIf="vdescription.errors?.['required']" class="alert alert-danger">
+                    Description is required
+                </div>
+                <div *ngIf="vdescription.errors?.['minlength']" class="alert alert-danger">
+                    Description should have atleast 4 characters
+                </div>
+                <!-- <div *ngIf="vstate.errors?.['pattern']" class="alert alert-danger">
+                    State name should not have any numbers or special characters
+                </div> -->
+            </div>
+        </div>
+
+        <!-- Rent -->
+        <div class="mb-3">
+            <label for="vrent"><b>Rent for an Event</b></label>
+            <input type="number"
+            class="form-control"
+            name="vrent"
+            required
+            min="500"
+            max="50000"
+            #vrent="ngModel"
+            [(ngModel)]="venue.rent"
+            pattern="^[1-9]\d*$">
+        </div>
+        <div class="validations">
+            <div *ngIf="vrent.invalid && (vrent.dirty || vrent.touched)">
+                <div *ngIf="vrent.errors?.['required']" class="alert alert-danger">
+                    *Rent is required
+                </div>
+                <div *ngIf="vrent.errors?.['min']" class="alert alert-danger">
+                    *Minimun rent is 500
+                </div>
+                <div *ngIf="vrent.errors?.['max']" class="alert alert-danger">
+                    *Maximum rent is 50000
+                </div>
+                <div *ngIf="vrent.errors?.['pattern']" class="alert alert-danger">
+                    *Invalid Rent
+                </div>
+            </div>
+        </div>
+
+    <!-- Venue documents -->
+    <!-- <div class="input-group mb-3">
+        <label for="inputGroupFile02">Venue Documents</label>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="inputGroupFile02">
+          <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+        </div>
+        <div class="input-group-append">
+          <span class="input-group-text" id="">Upload</span>
+        </div>
+    </div> -->
+    
+    <br><br><button  type="submit" class="btn btn-success">Save</button>
+               
+    </form> 
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    

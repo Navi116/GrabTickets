@@ -1,0 +1,46 @@
+
+<div class="card1">
+  <div  class="container">
+      <div class="row">
+          <div class="col-md">
+              <div class="card">
+                  <div class="text-center">
+                      <h1>Host Login</h1>
+                      <h6>Please enter email & password !!</h6>
+                  </div>
+                  
+                  <div class="mb-3">
+                      <label for="email" class="form-label">Email address</label>
+                      <input type="email" name="email" [(ngModel)]="email1" placeholder="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"><br>
+                      <div style="color: #fff;" id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>    
+                  </div>
+                      <div class="mb-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input type="password" name="upassword" [(ngModel)]="password1" placeholder="password" class="form-control" id="passowrd" aria-describedby="emailHelp"></div>
+                      <button (click)="handleLogin()" class="btn btn-primary">Login</button>
+                  
+          
+                  <div class="register-link">
+                      <p>Don't have an account?
+                          <a routerLink="/hosts/-1">Register</a>
+                      </p>
+                      
+                      
+                   </div>   
+                  </div>
+                  <div *ngIf="loginemail">
+                      Valid user
+                  </div>
+                   
+                          
+                  
+              </div>
+          </div>
+      </div>
+      </div>
+      
+      
+  
+      
+  
+  

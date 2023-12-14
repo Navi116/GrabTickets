@@ -1,0 +1,25 @@
+.card{
+    width: 250px; /* Sets a fixed width for the card */
+    height: 500px; /* Set a fixed height for the card */
+    margin: 20px; /* Add some spacing around the card */
+    overflow:hidden ; /* Hide any overflowing content */
+    border: 1px solid #ddd; /* Add a border for better separation */
+    border-radius: 8px; /* Add rounded corners to the card */
+    background-color: #fff; /* Set a background color */
+    position: relative; /* Add position relative for absolute positioning of child elements */
+  
+}
+
+.card-image img {
+    width: 300px; /* Make the image fill its container */
+    height: 180px; /* Make the image fill its container */
+    object-fit: fill; /* Maintain aspect ratio while covering the container */
+    display: flexbox; /* Remove extra spacing below the image */
+    border-radius: 8px; /* Add rounded corners to the image */
+    margin-right: 50px;
+  }
+
+  .card-footer {
+    padding-bottom: 5%; /* Add padding for content inside the footer */
+    
+  }

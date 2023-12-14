@@ -1,0 +1,39 @@
+.card1{
+    margin-top: 10px;
+    border: none;
+    width: 1600px;
+    padding: 342px;
+    position: absolute;
+    top: 53%;
+    left: 49%;
+    
+    transform: translate(-50%, -50%);
+    background: url(https://images.pexels.com/photos/2263436/pexels-photo-2263436.jpeg?cs=srgb&dl=pexels-teddy-yang-2263436.jpg&fm=jpg);
+    background: url(https://images.pexels.com/photos/2263436/pexels-photo-2263436.jpeg?cs=srgb&dl=pexels-teddy-yang-2263436.jpg&fm=jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+
+.card{
+    margin-top: 10px;
+    border: none;
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(49, 171, 100);
+    background: linear-gradient(90deg, rgb(39, 157, 83) 0%, rgb(113, 149, 120) 100%);
+   
+}
+
+.card h1,
+h6{
+    color: #fff;
+}
+
+label{
+    color: #fff;
+}

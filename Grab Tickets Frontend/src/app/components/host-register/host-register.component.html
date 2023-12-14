@@ -1,0 +1,244 @@
+
+
+<div class="card1">
+  <div class="container">
+    <div class="row">
+        <div class="col-md">
+            <div class="card">
+                <div class="text-center">
+                    <h4>Host Registration</h4>
+                </div>
+                
+                    
+                
+                <div class="container">
+                <form (ngSubmit)="!todoForm.invalid &&  addHost()" #todoForm="ngForm">
+                <!--Username-->
+                <div class="form-group">
+                    <label for="name"><b>Firstname</b></label>
+                    <input type="text"
+                    class="form-control"
+                    name="name"
+                    minlength="4"
+                    required
+                    #name="ngModel"
+                    [(ngModel)]="host.firstname"
+                    pattern="^[A-Za-z ]*">
+                </div>
+                <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                    <div *ngIf="name.errors?.['required']">
+                      Name is required
+                    </div>
+                    <div *ngIf="name.errors?.['minlength']">
+                      Name should have atleast 4 characters
+                    </div>
+                    <div *ngIf="name.errors?.['pattern']">
+                      Name should have only alphabets
+                    </div>
+                </div>
+                
+                <!--lastname-->
+                <div class="form-group">
+                  <label for="name"><b>Lastname</b></label>
+                  <input type="text"
+                  class="form-control"
+                  name="name"
+                  minlength="4"
+                  required
+                  #name="ngModel"
+                  [(ngModel)]="host.lastname"
+                  pattern="^[A-Za-z ]*">
+                </div>
+                <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                  <div *ngIf="name.errors?.['required']">
+                    Name is required
+                  </div>
+                  <div *ngIf="name.errors?.['minlength']">
+                    Name should have atleast 4 characters
+                  </div>
+                  <div *ngIf="name.errors?.['pattern']">
+                    Name should have only alphabets
+                  </div>
+                </div>
+                
+                <!--username-->
+                <div class="form-group">
+                  <label for="name"><b>Username</b></label>
+                  <input type="text"
+                  class="form-control"
+                  name="name"
+                  minlength="4"
+                  required
+                  #name="ngModel"
+                  [(ngModel)]="host.username"
+                  pattern="^[A-Za-z ]*">
+                </div>
+                <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                  <div *ngIf="name.errors?.['required']">
+                    Name is required
+                  </div>
+                  <div *ngIf="name.errors?.['minlength']">
+                    Name should have atleast 4 characters
+                  </div>
+                  <div *ngIf="name.errors?.['pattern']">
+                    Name should have only alphabets
+                  </div>
+                </div>
+                
+                
+                <!--password-->
+                <div class="form-group">
+                  <label for="password"><b>Password</b></label>
+                  <input type="text"
+                  class="form-control"
+                  name="password"
+                  minlength="4"
+                  required
+                  #password="ngModel"
+                  [(ngModel)]="host.password"
+                  pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$">
+                </div>
+                <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                  <div *ngIf="password.errors?.['required']">
+                    passowrd is required
+                  </div>
+                  <div *ngIf="password.errors?.['minlength']">
+                    <p>password should be atleast 10 characters and maximum 20</p>
+                  </div>
+                  
+                  <div *ngIf="password.errors?.['maxlength']">
+                    <p>password should not be beyond 20 characters characters</p>
+                  </div>
+                  
+                  <div *ngIf="password.errors?.['pattern']">
+                    <h1>Invalid mobile no</h1>
+                    password should contain atleast one lowercase characters
+                    atleast one uppercase character,
+                    atleast one numerical,
+                    length should atleast 8 and atmost 16 and there should not be any whitespace.
+                  </div>
+                </div>
+                
+                <!--aadhar no-->
+                <div class="form-group">
+                  <label for="aadhar no"><b>Aadhar no</b></label>
+                  <input type="text"
+                  maxlength="12"
+                  minlength="12"
+                  name="aadhar"
+                  class="form-control"
+                  required
+                  #aadhar="ngModel"
+                  [(ngModel)]="host.aadharno"
+                  pattern="^[0-9]*$">
+                </div>
+                <div *ngIf="aadhar.invalid && (aadhar.dirty || aadhar.touched)">
+                  <div *ngIf="aadhar.errors?.['required']">
+                    Aadhar no is required
+                
+                  </div>
+                  <div *ngIf="aadhar.errors?.['maxlength']">
+                    Aadhar no should be 12 digits
+                  </div>
+                
+                  <div *ngIf="aadhar.errors?.['minlength']">
+                    Aadhar no should be 12 digits
+                  </div>
+                
+                  <div *ngIf="aadhar.errors?.['pattern']">
+                    Invalid aadhar no
+                  </div>
+                </div>
+                
+                <!--mobile number-->
+                <div class="form-group">
+                  <label for="Mobile No"><b>Mobile Number</b></label>
+                  <input type="number"
+                  maxlength="10"
+                  minlength="10"
+                  name="mobile"
+                  class="form-control"
+                  required
+                  #mobile="ngModel"
+                 [(ngModel)]="host.mobilenumber"
+                 pattern="^[6-9]\d{9}$"
+                  >
+                </div>
+                <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)">
+                <div *ngIf="mobile.errors?.['required']">
+                  Mobile No is required
+                </div>
+                
+                <div *ngIf="mobile.errors?.['maxlength']">
+                  Mobile No should be 10 digits
+                </div>
+                
+                <div *ngIf="mobile.errors?.['minlength']">
+                  Mobile No should be 10 digits
+                </div>
+                
+                <div *ngIf="mobile.errors?.['pattern']">
+                  Invalid mobile no
+                </div>
+                
+                </div>
+                
+                <!--email id-->
+                <div class="form-group">
+                  <label for="Email"><b>Email</b></label>
+                  <input type="text"
+                  name="email"
+                  class="form-control"
+                  required
+                  #email="ngModel"
+                 [(ngModel)]="host.email"
+                 pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$"
+                  >
+                </div>
+                <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors?.['required']">
+                  Email  is required
+                </div>
+                
+                <div *ngIf="email.errors?.['pattern']">
+                  Invalid Email
+                </div>
+                
+                </div>
+                
+                <!--address-->
+                <div class="form-group">
+                  <label for="name"><b>Address</b></label>
+                  <input type="text"
+                  class="form-control"
+                  name="name"
+                  minlength="4"
+                  required
+                  #name="ngModel"
+                  [(ngModel)]="host.address"
+                  pattern="^[A-Za-z ]*">
+                </div>
+                <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                  <div *ngIf="name.errors?.['required']">
+                    Name is required
+                  </div>
+                  <div *ngIf="name.errors?.['minlength']">
+                    Name should have atleast 4 characters
+                  </div>
+                  <div *ngIf="name.errors?.['pattern']">
+                    Name should have only alphabets
+                  </div>
+                </div>
+                
+                
+                <button type="submit" class="btn btn-success">Save</button>
+                           
+                </form>
+                </div>     
+                      
+                
+            </div>
+        </div>
+    </div>
+  </div>
+  </div>

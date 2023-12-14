@@ -1,0 +1,213 @@
+
+    
+    
+<div class="card1">
+    <div  class="container">
+        <div class="row">
+            <div class="col-md">
+                <div class="card">
+                    <div class="text-center">
+                        <h1>User Registration</h1>
+                        
+                    </div>
+                    
+                    <form (ngSubmit)="!userForm.invalid && registerUser()" #userForm="ngForm">
+                        <div class="mb-3">
+                            <div  >
+                                <label for="fname" class="form-label">First Name</label>
+                                <input type="text"
+                                class="form-control"
+                                name="fname"
+                                minlength="4"
+                                required
+                                #fname="ngModel"
+                                [(ngModel)]="user.firstname"
+                                pattern="[A-Za-z]*">
+                            </div>
+                            <div class="validation">
+                                <div *ngIf="fname.invalid && (fname.dirty || fname.touched)">
+                                    <div *ngIf = "fname.errors?.['required']">
+                                        First Name is required
+                                    </div>
+                                    <div *ngIf="fname.errors?.['minlength']">
+                                        First Name should have atleast 4 characters
+                                    </div>
+                                    <div *ngIf="fname.errors?.['pattern']">
+                                        First Name should have only alphabets
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Last name -->
+                            <div class="mb-3" >
+                                <label for="lname" class="form-label">Last Name</label>
+                                <input type="text"
+                                class="form-control"
+                                name="lname"
+                                minlength="4"
+                                required
+                                #lname="ngModel"
+                                [(ngModel)]="user.lastname"
+                                pattern="[A-Za-z]*">
+                            </div>
+                            <div class="validation">
+                                <div *ngIf="lname.invalid && (lname.dirty || lname.touched)">
+                                    <div *ngIf = "lname.errors?.['required']">
+                                        Last Name is required
+                                    </div>
+                                    <div *ngIf="lname.errors?.['minlength']">
+                                        Last Name should have atleast 4 characters
+                                    </div>
+                                    <div *ngIf="lname.errors?.['pattern']">
+                                        Last Name should have only alphabets
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Email ID -->
+                            <div class="mb-3" >
+                                <label for="emailid" class="form-label">Email ID</label>
+                                <input type="text"
+                                class="form-control"
+                                name="emailid"
+                                minlength="4"
+                                required
+                                #emailid="ngModel"
+                                [(ngModel)]="user.email"
+                                pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$">
+                            </div>
+                            <div class="validation">
+                                <div *ngIf="emailid.invalid && (emailid.dirty || emailid.touched)">
+                                    <div *ngIf = "emailid.errors?.['required']">
+                                        Email ID is required
+                                    </div>
+                                    <div *ngIf="emailid.errors?.['minlength']">
+                                        Email ID should have atleast 4 characters
+                                    </div>
+                                    <div *ngIf="emailid.errors?.['pattern']">
+                                        Email ID is invalid.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Username -->
+                            <div class="mb-3" >
+                                <label for="uname" class="form-label">Username</label>
+                                <input type="text"
+                                class="form-control"
+                                name="uname"
+                                minlength="4"
+                                required
+                                #uname="ngModel"
+                                [(ngModel)]="user.username"
+                                pattern="[A-Za-z]*"
+                                >
+                            </div>
+                            <div class="validation">
+                                <div *ngIf="uname.invalid && (uname.dirty || uname.touched)">
+                                    <div *ngIf = "uname.errors?.['required']">
+                                        Username is required
+                                    </div>
+                                    <div *ngIf="uname.errors?.['minlength']">
+                                        Username ID should have atleast 4 characters
+                                    </div>
+                                    <div *ngIf="uname.errors?.['pattern']">
+                                        Username ID is invalid.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Password -->
+                            <div class="mb-3" >
+                                <label for="pass" class="form-label">Password</label>
+                                <input type="text"
+                                class="form-control"
+                                name="pass"
+                                minlength="8"
+                                required
+                                #pass="ngModel"
+                                [(ngModel)]="user.password"
+                                pattern="^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$"
+                                >
+                            </div>
+                            <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+                                <div *ngIf = "pass.errors?.['required']">
+                                    Password is required
+                                </div>
+                                <div *ngIf="pass.errors?.['minlength']">
+                                    Password should have atleast 8 characters
+                                </div>
+                                <div *ngIf="pass.errors?.['pattern']">
+                                    Password should have one special character, 1 uppercase and 1 lower character
+                                </div>
+                            </div>
+                            <!-- Mobile number -->
+                            <div class="mb-3" >
+                                <label for="mobile" class="form-label">Contact number</label>
+                                <input type="number"
+                                class="form-control"
+                                name="mobile"
+                                minlength="10"
+                                required
+                                #mobile="ngModel"
+                                [(ngModel)]="user.mobilenumber"
+                                pattern="^[6789][0-9]{9}">
+                            </div>
+                            <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)">
+                                <div *ngIf = "mobile.errors?.['required']">
+                                    Contact number is required
+                                </div>
+                                <div *ngIf="mobile.errors?.['minlength']">
+                                    Contact number should contain 10 digits
+                                </div>
+                                <div *ngIf="mobile.errors?.['pattern']">
+                                    Contact number is invalid.
+                                </div>
+                            </div>
+                            <!-- Date of Birth -->
+                            <div class="mb-3" >
+                                <label for="dob" class="form-label">Date of Birth</label>
+                                <input type="date"
+                                class="form-control"
+                                name="users.dob | date:'yyyy-MM-dd' "
+                                (ngModelChange)= "user.dob=$event"
+                                #dob="ngModel"
+                                [(ngModel)]="user.dob"
+                                >
+                            </div>
+                            <!-- Gender -->
+                            <!-- <div class="form-control">
+                                <label for="gender">Gender:</label><br>
+                                <select name="gender" #gender="ngModel" [(ngModel)]="user.gender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div> -->
+                            <div class="mb-3">
+                                <label for="gender" class="form-label">Gender</label>
+                                <div class="form-control">
+                                    <input type="text"
+                                    name="gender"
+                                    #gender="ngModel"
+                                    [(ngModel)]="user.gender">
+                                </div>
+                            </div>
+                            <div class="form-control col-4">
+                                <button type="submit" class="btn btn-success col-4">Register</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        
+    
+        
+    
+    
+
+
